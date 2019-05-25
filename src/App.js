@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import {Header} from "./components/Header";
 import {Player} from "./components/Player";
+import {AddPlayerForm} from "./components/AddPlayerForm";
 
 class App extends React.Component {
   state = {
@@ -25,7 +26,6 @@ class App extends React.Component {
   handleChangeScore = (id, delta) => {
     console.log(id, delta);
 
-
     this.setState(prevState => {
       this.state.players.forEach(item => {
         if (item.id === id) {
@@ -41,7 +41,7 @@ class App extends React.Component {
   render() {
     return (
       <div className='scoreboard'>
-        <Header title='My Scoreboard' totalPlayers={11} />
+        <Header title='My Scoreboard' players={this.state.players} />
 
         {
           this.state.players.map(player => (
@@ -51,6 +51,7 @@ class App extends React.Component {
                     changeScore={this.handleChangeScore} />
           ))
         }
+        <AddPlayerForm/>
       </div>
     );
   }

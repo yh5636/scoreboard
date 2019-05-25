@@ -7,7 +7,7 @@ export const Header = (props) => {
   const {title, totalPlayers} = props;
   return (
     <header>
-      <Statistics/>
+      <Statistics players={props.players}/>
       <h1>{title}</h1>
     </header>
   );
