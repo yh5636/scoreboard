@@ -1,0 +1,15 @@
+import React from 'react';
+
+export class ${NAME} extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+        <div>
+            ${NAME} works.
+        </div>
+    );
+  }
+}

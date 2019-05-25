@@ -1,0 +1,7 @@
+import React from 'react';
+
+export const ${NAME} = (props) => {
+  return (
+    <div>${NAME} works!!</div>
+  );
+}
