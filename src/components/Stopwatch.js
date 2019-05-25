@@ -2,13 +2,14 @@ import React from 'react';
 
 export class Stopwatch extends React.Component {
   thickRef; //속성선언
+
+  componentWillUnmount() {
+    clearInterval(this.tickRef);
+  }
+
   state = { //시간은 변하는 값이니까 state로
     timer : 0,
     isRunning : false
-  }
-
-  constructor(props) {
-    super(props);
   }
 
   render() {
@@ -17,7 +18,7 @@ export class Stopwatch extends React.Component {
         <h2>Stopwatch</h2>
         <span className="stopwatch-time">{this.state.timer}</span>
         <button onClick={this.handleStopwatch}>Start</button>
-        <button>Reset</button>
+        <button onClick={this.resetStopwatch}>Reset</button>
       </div>
     );
   }
@@ -47,6 +48,10 @@ export class Stopwatch extends React.Component {
       isRunning: !prevState.isRunning
       })
     );
+  }
+
+  resetStopwatch = () => {
+    this.setState({timer:0})
   }
 
 }
